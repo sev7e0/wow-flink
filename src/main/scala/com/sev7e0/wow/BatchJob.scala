@@ -18,6 +18,7 @@
 
 package com.sev7e0.wow
 
+import org.apache.flink.api.common.operators.Order
 import org.apache.flink.api.scala._
 
 /**
@@ -36,6 +37,14 @@ object BatchJob {
     // set up the batch execution environment
     val env = ExecutionEnvironment.getExecutionEnvironment
 
+    val fileStream = env.readTextFile("pom.xml")
+
+    fileStream.flatMap{line => line.split(" ")}
+      .map{(_,1)}
+      .groupBy(0)
+      .sum(1)
+      .andMax(2)
+      .print()
     /*
      * Here, you can start creating your execution plan for Flink.
      *
@@ -61,6 +70,6 @@ object BatchJob {
      */
 
     // execute program
-    env.execute("Flink Batch Scala API Skeleton")
+//    env.execute("Flink Batch Scala API Skeleton")
   }
 }

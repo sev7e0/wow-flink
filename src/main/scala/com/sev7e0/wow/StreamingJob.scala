@@ -18,7 +18,11 @@
 
 package com.sev7e0.wow
 
+import org.apache.flink.api.common.functions.RichFlatMapFunction
+import org.apache.flink.api.common.state.{ValueState, ValueStateDescriptor}
+import org.apache.flink.configuration.Configuration
 import org.apache.flink.streaming.api.scala._
+import org.apache.flink.util.Collector
 
 /**
  * Skeleton for a Flink Streaming Job.
@@ -36,6 +40,32 @@ object StreamingJob {
   def main(args: Array[String]) {
     // set up the streaming execution environment
     val env = StreamExecutionEnvironment.getExecutionEnvironment
+
+
+    val inputStream: DataStream[(Int, Long)] = env.fromElements((2, 21L), (4, 1L), (5, 4L))
+
+    inputStream.keyBy(_._1).flatMap({
+
+      new RichFlatMapFunction[(Int, Long), (Int, Long, Long)] {
+
+        private var leastValuesState: ValueState[Long] = _
+
+        override def open(parameters: Configuration): Unit = {
+          val value = new ValueStateDescriptor[Long]("leastValue",classOf[Long])
+          leastValuesState = getRuntimeContext.getState(value)
+        }
+
+        override def flatMap(in: (Int, Long), collector: Collector[(Int, Long, Long)]): Unit = {
+          val value = leastValuesState.value()
+          if (in._2 > value){
+            collector.collect(in._1,in._2,value)
+          }else{
+            leastValuesState.update(in._2)
+            collector.collect(in._1,in._2,in._2)
+          }
+        }
+      }
+    }).print()
     /*
      * Here, you can start creating your execution plan for Flink.
      *
