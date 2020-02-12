@@ -16,9 +16,8 @@
  * limitations under the License.
  */
 
-package com.sev7e0.wow
+package com.sev7e0.wow.scala
 
-import org.apache.flink.api.common.operators.Order
 import org.apache.flink.api.scala._
 
 /**
