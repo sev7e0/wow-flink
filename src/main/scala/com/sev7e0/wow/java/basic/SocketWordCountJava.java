@@ -1,4 +1,4 @@
-package com.sev7e0.wow.java;
+package com.sev7e0.wow.java.basic;
 
 import org.apache.flink.api.common.functions.FlatMapFunction;
 import org.apache.flink.api.java.tuple.Tuple;

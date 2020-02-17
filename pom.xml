@@ -79,7 +79,11 @@ under the License.
 			<version>${scala.version}</version>
 			<scope>compile</scope>
 		</dependency>
-
+		<dependency>
+			<groupId>org.apache.bahir</groupId>
+			<artifactId>flink-connector-redis_2.11</artifactId>
+			<version>1.0</version>
+		</dependency>
 		<!-- Add connector dependencies here. They must be in the default scope (compile). -->
 
 		<!-- Example:

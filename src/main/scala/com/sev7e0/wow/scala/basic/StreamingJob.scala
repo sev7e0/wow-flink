@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package com.sev7e0.wow.scala
+package com.sev7e0.wow.scala.basic
 
 import org.apache.flink.api.common.functions.RichFlatMapFunction
 import org.apache.flink.api.common.state.{ValueState, ValueStateDescriptor}

@@ -1,4 +1,4 @@
-package com.sev7e0.wow.java;
+package com.sev7e0.wow.java.source;
 
 import org.apache.flink.api.common.functions.MapFunction;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;

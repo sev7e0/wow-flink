@@ -1,9 +1,12 @@
-package com.sev7e0.wow.scala
+package com.sev7e0.wow.scala.basic
 
 import org.apache.flink.api.java.utils.ParameterTool
 import org.apache.flink.streaming.api.scala.StreamExecutionEnvironment
 import org.apache.flink.streaming.api.windowing.time.Time
 
+/**
+ * transformation operation practice of `flatmap` `map` `keyBy`
+ */
 object WindowWordCountScala {
   def main(args: Array[String]): Unit = {
 
