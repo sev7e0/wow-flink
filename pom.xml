@@ -84,6 +84,18 @@ under the License.
 			<artifactId>flink-connector-redis_2.11</artifactId>
 			<version>1.0</version>
 		</dependency>
+		<!--flink kafka connector-->
+		<dependency>
+			<groupId>org.apache.flink</groupId>
+			<artifactId>flink-connector-kafka-0.11_${scala.binary.version}</artifactId>
+			<version>${flink.version}</version>
+		</dependency>
+		<!--alibaba fastjson-->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.51</version>
+		</dependency>
 		<!-- Add connector dependencies here. They must be in the default scope (compile). -->
 
 		<!-- Example:

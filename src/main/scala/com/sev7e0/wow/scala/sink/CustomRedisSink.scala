@@ -34,7 +34,6 @@ object CustomRedisSink {
 
     val redisSink = new RedisSink(jedisPoolConfig, new CustomRedisMapper)
 
-
     mapSource.addSink(redisSink)
 
     environment.execute(CustomRedisSink.getClass.getName)
