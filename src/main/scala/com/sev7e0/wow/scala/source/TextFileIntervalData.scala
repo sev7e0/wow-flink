@@ -1,6 +1,5 @@
 package com.sev7e0.wow.scala.source
 
-import org.apache.flink.api.common.io.FilePathFilter
 import org.apache.flink.api.java.io.TextInputFormat
 import org.apache.flink.core.fs.Path
 import org.apache.flink.streaming.api.functions.source.FileProcessingMode
