@@ -20,7 +20,7 @@ object CustomMessageUtil {
     //map转json
     val tags = JSONObject(produceMessage.tags).toString()
     //json转map
-    val option = JSON.parseFull(tags).get
+    val option = JSON.parseFull(tags).get.asInstanceOf[Map[String,Any]]
     println(option)
   }
 
