@@ -90,6 +90,12 @@ under the License.
 			<artifactId>flink-connector-kafka-0.11_${scala.binary.version}</artifactId>
 			<version>${flink.version}</version>
 		</dependency>
+		<!--flink es connector-->
+		<dependency>
+			<groupId>org.apache.flink</groupId>
+			<artifactId>flink-connector-elasticsearch6_${scala.binary.version}</artifactId>
+			<version>${flink.version}</version>
+		</dependency>
 		<!--alibaba fastjson-->
 		<dependency>
 			<groupId>com.alibaba</groupId>
