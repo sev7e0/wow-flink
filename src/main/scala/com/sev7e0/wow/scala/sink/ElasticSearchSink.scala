@@ -34,7 +34,6 @@ object ElasticSearchSink {
     // 不使用批处理请求，将在每一条数据后进行写入，不会被缓存
     builder.setBulkFlushMaxActions(1)
     builder.setFailureHandler(new RetryRejectedExecutionFailureHandler())
-    // flink文档中关于elasticsearch connector部分，scala代码中存在错误语法示范，
     builder.setRestClientFactory(new RestClientFactory {
       override def configureRestClientBuilder(restClientBuilder: RestClientBuilder): Unit = {
         restClientBuilder.setMaxRetryTimeoutMillis(90000)
