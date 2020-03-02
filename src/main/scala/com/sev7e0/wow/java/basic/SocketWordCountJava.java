@@ -29,12 +29,12 @@ public class SocketWordCountJava {public static void main(String[] args) throws 
 				out.collect(new WordCount(word, 1L));
 			}
 		}
-	});
+	}).setParallelism(2);
 	KeyedStream<WordCount, Tuple> word = wordAndOneStream.keyBy("word");
 	SingleOutputStreamOperator<WordCount> count = word.timeWindow(Time.seconds(2), Time.seconds(1))//每隔1秒计算最近2秒
 		.sum("count");
 	//步骤四：结果打印
-	count.print();
+	count.print().setParallelism(2);
 	//步骤五：任务启动
 	env.execute("WindowWordCountJava");
 }

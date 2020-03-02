@@ -35,4 +35,19 @@ public class CustomMysqlSink extends RichSinkFunction {
 	public void invoke(Object value, Context context) throws Exception {
 
 	}
+
+	public static void main(String[] args) {
+		A b = new B();
+		System.out.println(b.a);
+	}
+}
+
+
+class A {
+	public int a = 10;
+
+}
+
+class B extends A{
+	public int a = 100;
 }
